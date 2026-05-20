@@ -1,0 +1,28 @@
+name: Deploy QR Code
+
+on:
+  push:
+    paths:
+      - '003-qr-code-component/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: |
+          cd 003-qr-code-component
+          npm install
+          npm run generate
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: 003-qr-code-component/.output/public
+          destination_dir: 003-qr-code-component

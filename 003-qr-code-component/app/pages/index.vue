@@ -7,7 +7,7 @@
       <div class="image-container">
         <img
           class="qr-image"
-          src="/image-qr-code.png"
+          :src="`${useRuntimeConfig().app.baseURL}image-qr-code.png`"
           alt="QR code"
         />
       </div>
