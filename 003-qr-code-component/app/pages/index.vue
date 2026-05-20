@@ -1,4 +1,7 @@
 <script setup>
+const config = useRuntimeConfig()
+
+const qrImageSrc = `${config.app.baseURL}image-qr-code.png`
 </script>
 
 <template>
@@ -7,8 +10,8 @@
       <div class="image-container">
         <img
           class="qr-image"
-          :src="`${useRuntimeConfig().app.baseURL}image-qr-code.png`"
-          alt="QR code"
+          :src="qrImageSrc"
+          alt="QR code linking to Frontend Mentor"
         />
       </div>
 
@@ -27,8 +30,6 @@
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
-
 *,
 *::before,
 *::after {
@@ -41,7 +42,6 @@
   --slate-500: hsl(216, 15%, 48%);
   --slate-900: hsl(218, 44%, 22%);
 
-  min-height: 100vh;
   min-height: 100dvh;
 
   display: grid;
