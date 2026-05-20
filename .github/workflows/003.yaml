@@ -2,8 +2,16 @@ name: Deploy QR Code
 
 on:
   push:
+    branches:
+      - main
     paths:
       - '003-qr-code-component/**'
+      - '.github/workflows/003.yaml'
+  
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   deploy:
