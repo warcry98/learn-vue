@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   app: {
-    baseURL: '/003-qr-code-component',
+    baseURL: '/learn-vue/003-qr-code-component/',
     head: {
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon-32x32.png'},
@@ -13,5 +13,8 @@ export default defineNuxtConfig({
         }
       ],
     }
+  },
+  nitro: {
+    preset: 'github_pages',
   }
 })
