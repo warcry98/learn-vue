@@ -1,0 +1,45 @@
+name: Deploy QR Code
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '003-qr-code-improved/**'
+      - '.github/workflows/003-improved.yaml'
+  
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: |
+          cd 003-qr-code-improved
+          npm install
+          npm run generate
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: 003-qr-code-improved/.output/public
+          destination_dir: 003-qr-code-improved
+    
+      - name: Show GitHub Pages URL
+        run: |
+          echo ""
+          echo "🚀 GitHub Pages deployed successfully!"
+          echo ""
+          echo "📄 URL:"
+          echo "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/003-qr-code-improved/"
+          echo ""
