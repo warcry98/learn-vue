@@ -5,7 +5,7 @@
 </template>
 
 
-<style scoped>
+<style>
 * {
   --white: hsl(0, 0%, 100%);
   --slate-300: hsl(212, 45%, 89%);

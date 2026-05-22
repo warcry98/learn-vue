@@ -66,7 +66,7 @@ const qrImageSrc = `${config.app.baseURL}image-qr-code.png`
 
 .content {
   margin: 9px 16px 10px;
-  line-height: 1.2;
+  line-height: 1.2px;
 }
 
 .header {
@@ -83,7 +83,7 @@ const qrImageSrc = `${config.app.baseURL}image-qr-code.png`
   text-align: center;
 
   margin: 0px 12px 0px;
-  letter-spacing: 1.2;
+  letter-spacing: 1.2px;
 }
 
 </style>
